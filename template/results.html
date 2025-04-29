@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spam Comments Detection</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<style>
+		/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background: #0056b3;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* ML Container Styling */
+.ml-container {
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.ml-container h2 {
+    font-size: 26px;
+    margin-top: 20px;
+}
+
+.ml-container p {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Spam and Not Spam Styles */
+.ml-container h2 {
+    font-weight: bold;
+}
+
+.ml-container h2[style*="color:red"] {
+    color: #d9534f !important;
+}
+
+.ml-container h2[style*="color:blue"] {
+    color: #0275d8 !important;
+}
+
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+		    <h2>Youtube Spam Comments Detection</h2>
+	    </div>
+	</header>
+	
+	<div class="ml-container">
+        <p style="color:blue;font-size:20;text-align: center;"><b>Results for Comment</b></p>
+        {% if prediction == 1%}
+        <h2 style="color:red;">Spam comment</h2>
+        {% elif prediction == 0%}
+        <h2 style="color:blue;">Not a Spam comment</h2>
+        {% endif %}
+	</div>
+
+</body>
+</html>

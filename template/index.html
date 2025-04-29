@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spam Comments Detection</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<style>
+		/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background: #0056b3;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* ML Container Styling */
+.ml-container {
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Form Styling */
+.ml-container form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ml-container textarea {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    resize: vertical;
+}
+
+.ml-container input[type="submit"] {
+    width: 150px;
+    padding: 10px;
+    background-color: #0275d8;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ml-container input[type="submit"]:hover {
+    background-color: #0256a1;
+}
+
+/* Text Styling */
+.ml-container p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+	</style>
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		    <h2>Youtube Spam Comments Detection</h2>
+	    </div>
+	</header>
+
+	<div class="ml-container">
+		<form action="{{ url_for('predict') }}" method="POST">
+            <p>Enter the comment that you wanna predict</p>
+            <textarea name="comment" rows="4" cols="50" placeholder="Type your comment here..."></textarea>
+            <br/>
+            <input type="submit" class="btn-info" value="Predict">
+	    </form>
+	</div>
+
+</body>
+</html>
