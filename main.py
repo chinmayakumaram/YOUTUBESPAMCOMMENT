@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
 
-app = Flask(__name__, template_folder='template')
+
 
 # Load and preprocess data once when the server starts
 df = pd.read_csv("Youtube-Spam-Dataset.csv")
